@@ -1,0 +1,5 @@
+{
+    "port": "5000",
+    "mongoUri": "mongodb+srv://asad:b7q3JjGQzDpIfTfu@cluster0.l1arz.mongodb.net/mern",
+    "jwtSecret": "asadbek raimov"
+}
