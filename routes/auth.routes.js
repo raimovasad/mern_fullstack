@@ -13,6 +13,7 @@ router.post('/register', [
     async(req, res) => {
         try {
             const errors = validationResult(req)
+            
             if (!errors.isEmpty()) {
                 return res.status(400).json({ errors: errors.array(), message: 'Некорректные данные при регистрации' })
             }
@@ -26,7 +27,7 @@ router.post('/register', [
             const hashedPassword = await bcrypt.hash(password, 12)
             const user = new User({
                 email,
-                password: hashedPassword
+                password: hashedPassword 
             })
 
             await user.save()
@@ -35,7 +36,6 @@ router.post('/register', [
         } catch (e) {
             res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })
         }
-        res.redirect()
     })
 
 router.post('/login', [
@@ -69,7 +69,6 @@ router.post('/login', [
         } catch (e) {
             res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })
         }
-        res.redirect()
     })
 
 
